@@ -91,12 +91,12 @@ public class Cell {
 	}
 	
 	public String toString(){
-		return "armRot: " + getArmRot() + "/n" +
-			   "rakeRot: " + getRakeRot() + "/n"+
-			   "neighborUp: " + hasNeighborUp() + "/n" +
-			   "neighborDown: " + hasNeighborDown() + "/n" +
-			   "neighborLeft: " + hasNeighborLeft() + "/n" +
-			   "neighborRight: " + hasNeighborRight() + "/n" +
+		return "armRot: " + getArmRot() + "\n" +
+			   "rakeRot: " + getRakeRot() + "\n"+
+			   "neighborUp: " + hasNeighborUp() + "\n" +
+			   "neighborDown: " + hasNeighborDown() + "\n" +
+			   "neighborLeft: " + hasNeighborLeft() + "\n" +
+			   "neighborRight: " + hasNeighborRight() + "\n" +
 			   "rewardUp: " + getRewardUp() + "\n" +
 			   "rewardDown: " + getRewardDown() + "\n" +
 			   "rewardLeft: " + getRewardLeft() + "\n" +
