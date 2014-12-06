@@ -18,10 +18,15 @@ public class Cell {
 	private final boolean neighborDown;  
 
 	private int goodness = 0;
-	private int rewardLeft = 0;  //these help the robot pick a certain path
+	private int rewardLeft = 0;  //tells the robot where it's going
 	private int rewardRight = 0;
 	private int rewardUp = 0;
 	private int rewardDown = 0;
+	
+	private int policyLeft = 0;  //tells the robot where to go
+	private int policyRight = 0;
+	private int policyUp = 0;
+	private int policyDown = 0;
 	
 	public Cell(int armRot, int rakeRot, boolean left, boolean right, boolean up, boolean down){
 		
