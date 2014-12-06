@@ -1,3 +1,12 @@
+/**
+ * Cell class holds information such as if it has neighbor cell that a cell
+ * can possibly move to, the goodness value, and the rewards the cell obtained 
+ * when moving to a different cell.
+ *
+ * @author Michael Arteaga, Jeffrey Creighton, and Josh Levine 
+ * @version Dec 5, 2014
+ */
+
 public class Cell {
 	
 	private final int armRot;
@@ -24,8 +33,7 @@ public class Cell {
 		this.neighborDown = down;
 	}
 
-	//getters
-	public int getGoodness() {
+	public int getGoodness() {		//accessor methods
 		return goodness;
 	}
 
@@ -69,8 +77,7 @@ public class Cell {
 		return neighborDown;
 	}
 	
-	//setters
-	public void setGoodness(int goodness) {
+	public void setGoodness(int goodness) {		//mutator methods
 		this.goodness = goodness;
 	}
 	
