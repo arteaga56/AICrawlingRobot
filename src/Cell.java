@@ -18,12 +18,12 @@ public class Cell {
 	private final boolean neighborDown;  
 
 	private int goodness = 0;
-	private int rewardLeft = 0;  //tells the robot where it's going
+	private int rewardLeft = 0;  //keeps track of how far the robot moves if takes an action.
 	private int rewardRight = 0;
 	private int rewardUp = 0;
 	private int rewardDown = 0;
 	
-	private int policyLeft = 0;  //tells the robot where to go
+	private int policyLeft = 0;  //tells the robot where it should go
 	private int policyRight = 0;
 	private int policyUp = 0;
 	private int policyDown = 0;
@@ -38,10 +38,26 @@ public class Cell {
 		this.neighborDown = down;
 	}
 
-	public int getGoodness() {		//accessor methods
+	public int getGoodness() {		//Accessor methods
 		return goodness;
 	}
 
+	public int getPolicyLeft(){
+		return policyLeft;
+	}
+	
+	public int getPolicyRight(){
+		return policyRight;
+	}
+	
+	public int getPolicyUp(){
+		return policyUp;
+	}
+	
+	public int getPolicyDown(){
+		return policyDown;
+	}
+	
 	public int getRewardLeft() {
 		return rewardLeft;
 	}
@@ -82,23 +98,43 @@ public class Cell {
 		return neighborDown;
 	}
 	
-	public void setGoodness(int goodness) {		//mutator methods
+	public void setGoodness(int goodness) {		//Mutator methods
 		this.goodness = goodness;
 	}
 	
-	public void setRewardLeft(int rewardLeft) {
-		this.rewardLeft = rewardLeft;
+	public void setPolicyLeft(int policyLeft){
+		this.policyLeft = policyLeft;
+	}
+	
+	public void setPolicyRight(int policyRight){
+		this.policyRight = policyRight;
+	}
+	
+	public void setPolicyUp(int policyUp){
+		this.policyUp = policyUp;
+	}
+	
+	public void setPolicyDown(int policyDown){
+		this.policyDown = policyDown;
+	}
+	
+	public void setRewardLeft(int rewardLeft) {//the reward mutators also update the policy
+		policyLeft += rewardLeft;			   //because the policy is the accumulation
+		this.rewardLeft = rewardLeft;		   //of all the rewards
 	}
 	
 	public void setRewardDown(int rewardDown) {
+		policyDown += rewardDown;
 		this.rewardDown = rewardDown;
 	}
 	
 	public void setRewardUp(int rewardUp) {
+		policyUp += rewardUp;
 		this.rewardUp = rewardUp;
 	}
 	
 	public void setRewardRight(int rewardRight) {
+		policyRight += rewardRight;
 		this.rewardRight = rewardRight;
 	}
 	
