@@ -11,14 +11,14 @@ public class Algo {
 	private Cell cell;
 	private double discounting_factor;
 	private int r = 0;
-	
+
 	public Algo(){
 		plane = new Grid();
 		random = new Random();
 		modeCheck = 100;
 		discounting_factor = 0.9;
 	}
-	
+
 	/**
 	 * Decide on a cell to move to 
 	 * @return cell
@@ -33,7 +33,7 @@ public class Algo {
 		r = random.nextInt(500)+1;
 		return cell;
 	}
-	
+
 	/**
 	 * Make a random cell selection of up, down, left, or right
 	 */
@@ -66,7 +66,7 @@ public class Algo {
 			}
 		}// end loop
 	}
-	
+
 	/**
 	 * Make a calculated cell selection of up, down, left, or right
 	 */
@@ -77,7 +77,7 @@ public class Algo {
 		int down = 0;
 		int left = 0;
 		int right = 0;
-		
+
 		if(cell.hasNeighborUp()) {
 			up = (int) (cell.getRewardUp() + (discounting_factor * plane.getCellUp().getGoodness()));
 		}
@@ -94,7 +94,7 @@ public class Algo {
 		list[1] = down;
 		list[2] = left;
 		list[3] = right;
-		
+
 		int largest = list[0];
 		int direction = 0;
 		for(int i = 0; i<=3; i++) {
@@ -103,7 +103,7 @@ public class Algo {
 				direction = i;
 			}
 		}
-		
+
 		cell.setGoodness(largest);
 		cell.setPolicy(direction);
 	}
