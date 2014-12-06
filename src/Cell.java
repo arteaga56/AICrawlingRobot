@@ -23,10 +23,7 @@ public class Cell {
 	private int rewardUp = 0;
 	private int rewardDown = 0;
 	
-	private int policyLeft = 0;  //tells the robot where it should go
-	private int policyRight = 0;
-	private int policyUp = 0;
-	private int policyDown = 0;
+	private int policy;  //tells the robot where it should go
 	
 	public Cell(int armRot, int rakeRot, boolean left, boolean right, boolean up, boolean down){
 		
@@ -42,20 +39,8 @@ public class Cell {
 		return goodness;
 	}
 
-	public int getPolicyLeft(){
-		return policyLeft;
-	}
-	
-	public int getPolicyRight(){
-		return policyRight;
-	}
-	
-	public int getPolicyUp(){
-		return policyUp;
-	}
-	
-	public int getPolicyDown(){
-		return policyDown;
+	public int getPolicy(){
+		return policy;
 	}
 	
 	public int getRewardLeft() {
@@ -102,39 +87,23 @@ public class Cell {
 		this.goodness = goodness;
 	}
 	
-	public void setPolicyLeft(int policyLeft){
-		this.policyLeft = policyLeft;
+	public void setPolicy(int policy){
+		this.policy = policy;
 	}
 	
-	public void setPolicyRight(int policyRight){
-		this.policyRight = policyRight;
-	}
-	
-	public void setPolicyUp(int policyUp){
-		this.policyUp = policyUp;
-	}
-	
-	public void setPolicyDown(int policyDown){
-		this.policyDown = policyDown;
-	}
-	
-	public void setRewardLeft(int rewardLeft) {//the reward mutators also update the policy
-		policyLeft += rewardLeft;			   //because the policy is the accumulation
-		this.rewardLeft = rewardLeft;		   //of all the rewards
+	public void setRewardLeft(int rewardLeft) {
+		this.rewardLeft = rewardLeft;		   
 	}
 	
 	public void setRewardDown(int rewardDown) {
-		policyDown += rewardDown;
 		this.rewardDown = rewardDown;
 	}
 	
 	public void setRewardUp(int rewardUp) {
-		policyUp += rewardUp;
 		this.rewardUp = rewardUp;
 	}
 	
 	public void setRewardRight(int rewardRight) {
-		policyRight += rewardRight;
 		this.rewardRight = rewardRight;
 	}
 	
